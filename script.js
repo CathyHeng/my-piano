@@ -227,7 +227,7 @@ class MacPiano {
         
         // Song controls (use onclick instead of addEventListener to avoid conflicts)
         document.getElementById('playFurElise').onclick = () => {
-            console.log('Play Für Elise button clicked, button text:', document.getElementById('playFurElise').textContent);
+            console.log('Play song button clicked, button text:', document.getElementById('playFurElise').textContent);
             this.playSong('furElise');
         };
         
@@ -954,9 +954,9 @@ class MacPiano {
         
         // Reset UI
         songButton.classList.remove('playing');
-        songButton.textContent = 'Play Für Elise';
+        songButton.textContent = 'Play song';
         songButton.onclick = () => {
-            console.log('Play Für Elise button clicked (after reset)');
+            console.log('Play song button clicked (after reset)');
             this.playSong('furElise');
         };
         statusElement.textContent = '';
