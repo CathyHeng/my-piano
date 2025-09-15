@@ -511,10 +511,9 @@ body {
 
 .instrument-selector {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
     margin-top: 5px;
     margin-bottom: 8px;
     width: 100%;
@@ -541,7 +540,8 @@ body {
 .octave-controls {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: space-between;
+    width: 110px; /* Match the width of instrument dropdown */
 }
 
 .control-button {
@@ -757,6 +757,10 @@ body {
         font-size: 6px;
         padding: 2px 4px;
     }
+    
+    .octave-controls {
+        width: 95px; /* Match the responsive width of instrument dropdown */
+    }
 }
 
 @media (max-width: 750px) {
@@ -799,6 +803,10 @@ body {
         width: 85px;
         font-size: 6px;
         padding: 2px 4px;
+    }
+    
+    .octave-controls {
+        width: 85px; /* Match the responsive width of instrument dropdown */
     }
 }
 
