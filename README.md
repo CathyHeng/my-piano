@@ -2,6 +2,14 @@
 
 A beautiful digital piano web application with Old Mac OS inspired design and interactive learning features.
 
+## 🚀 Live Demo
+
+**[Try My Piano App](https://cathyheng.github.io/my-piano/)**
+
+## 📸 Screenshot
+
+![My Piano Screenshot](screenshot.png)
+
 ## ✨ Features
 
 - **🎹 2-Octave Piano Keyboard** - Authentic piano layout with proper black key positioning
@@ -12,14 +20,6 @@ A beautiful digital piano web application with Old Mac OS inspired design and in
 - **🎨 Retro Design** - Classic Mac OS System 7 inspired interface
 - **⌨️ Keyboard Support** - Play with your computer keyboard or mouse
 - **🔊 Audio Controls** - Volume, sustain, and octave controls
-
-## 🚀 Live Demo
-
-**[Try My Piano App](https://cathyheng.github.io/my-piano/)**
-
-## 📸 Screenshot
-
-![My Piano Screenshot](screenshot.png)
 
 ## 🎮 How to Play
 
