@@ -8,7 +8,7 @@ A beautiful digital piano web application with Old Mac OS inspired design and in
 
 ## 📸 Screenshot
 
-![My Piano Screenshot](screenshot.png)
+![My Piano Screenshot](piano-screenshot.png)
 
 ## ✨ Features
 
