@@ -1019,9 +1019,9 @@ class MacPiano {
         
         // Update UI - change button text and add visual indicator
         teachButton.classList.add('teaching');
-        teachButton.textContent = 'Stop Teaching';
+        teachButton.textContent = 'Stop';
         teachButton.onclick = () => {
-            console.log('Stop Teaching button clicked');
+            console.log('Stop button clicked');
             this.stopTeaching();
         };
         songButton.disabled = true;
