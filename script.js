@@ -303,12 +303,19 @@ class MacPiano {
             {note: 'B', octave: 1, position: 13}
         ];
 
-        // Create white keys first
-        whiteKeyData.forEach(({note, octave, position}) => {
+        // Create white keys first and measure their width
+        let whiteKeyWidth = 60; // Default width
+        whiteKeyData.forEach(({note, octave, position}, index) => {
             const key = this.createKey(note, octave, false);
             key.style.position = 'absolute';
-            key.style.left = `${position * 60}px`; // 60px width per white key
             keyboard.appendChild(key);
+            
+            // Measure the first white key to get actual width for responsive design
+            if (index === 0) {
+                whiteKeyWidth = key.offsetWidth;
+            }
+            
+            key.style.left = `${position * whiteKeyWidth}px`;
         });
         
         // Black keys positioned correctly according to piano pattern: 2-3-2-3
@@ -337,10 +344,16 @@ class MacPiano {
             const blackKey = this.createKey(note, octave, true);
             blackKey.style.position = 'absolute';
             blackKey.style.zIndex = '2'; // Ensure black keys appear above white keys
-            // Position black key centered between white keys
-            const leftPosition = (whiteKeyIndex * 60) - 19; // 19px = half of 38px black key width
-            blackKey.style.left = `${leftPosition}px`;
+            
+            // Add to keyboard first so we can measure its actual width
             keyboard.appendChild(blackKey);
+            
+            // Get the actual computed width for responsive design
+            const blackKeyWidth = blackKey.offsetWidth;
+            
+            // Position black key centered between white keys
+            const leftPosition = (whiteKeyIndex * whiteKeyWidth) - (blackKeyWidth / 2);
+            blackKey.style.left = `${leftPosition}px`;
         });
     }
     

@@ -40,14 +40,16 @@ body {
     border-bottom: 1px solid #808080;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 4px;
+    position: relative;
 }
 
 .title-bar-title {
     font-size: 9px;
     font-weight: normal;
-    flex: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
 }
 
@@ -61,9 +63,6 @@ body {
     gap: 6px;
 }
 
-.title-bar-controls.right {
-    gap: 2px;
-}
 
 .window-button {
     width: 14px;
@@ -598,7 +597,6 @@ body {
 }
 
 .keyboard {
-    display: flex;
     height: 180px; /* Increased from 120px */
     width: 840px; /* Increased from 560px (14 keys × 60px each) */
     position: relative;
@@ -645,8 +643,6 @@ body {
     border: 1px solid #000000;
     border-radius: 0 0 3px 3px; /* Slightly larger radius */
     z-index: 2;
-    margin-left: -19px; /* Adjusted for new width */
-    margin-right: -19px; /* Adjusted for new width */
     color: white;
     padding-bottom: 12px; /* Increased padding */
 }
@@ -723,8 +719,6 @@ body {
     .key.black {
         width: 30px;
         height: 90px;
-        margin-left: -15px;
-        margin-right: -15px;
         padding-bottom: 10px;
     }
     
@@ -779,8 +773,6 @@ body {
     .key.black {
         width: 25px;
         height: 75px;
-        margin-left: -13px;
-        margin-right: -12px;
         padding-bottom: 8px;
     }
     
