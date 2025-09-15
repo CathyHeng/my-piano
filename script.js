@@ -1100,11 +1100,18 @@ class MacPiano {
             const confetti = document.createElement('div');
             confetti.className = 'confetti';
             
-            // Random positioning across the screen width
-            confetti.style.left = Math.random() * 100 + '%';
+            // Random burst direction and distance from center
+            const angle = Math.random() * 2 * Math.PI; // Random angle in radians
+            const distance = Math.random() * 400 + 200; // Random distance 200-600px
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
             
-            // Random delay for staggered effect
-            confetti.style.animationDelay = Math.random() * 2 + 's';
+            // Set CSS custom properties for animation
+            confetti.style.setProperty('--dx', dx + 'px');
+            confetti.style.setProperty('--dy', dy + 'px');
+            
+            // Random delay for staggered burst effect
+            confetti.style.animationDelay = Math.random() * 0.5 + 's';
             
             // Random sizes for variety
             const size = Math.random() * 8 + 6; // 6-14px

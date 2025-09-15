@@ -19,17 +19,17 @@ body {
     height: 100vh;
     background: 
         /* Computer icons pattern */
-        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ctext x='10' y='20' font-size='16' font-family='monospace'%3E💻%3C/text%3E%3Ctext x='80' y='40' font-size='14' font-family='monospace'%3E🖥️%3C/text%3E%3Ctext x='40' y='60' font-size='12' font-family='monospace'%3E💾%3C/text%3E%3Ctext x='70' y='90' font-size='14' font-family='monospace'%3E⌨️%3C/text%3E%3Ctext x='15' y='80' font-size='13' font-family='monospace'%3E🖱️%3C/text%3E%3Ctext x='90' y='70' font-size='12' font-family='monospace'%3E📁%3C/text%3E%3Ctext x='30' y='100' font-size='13' font-family='monospace'%3E🔧%3C/text%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.12'%3E%3Ctext x='20' y='40' font-size='28' font-family='monospace'%3E💻%3C/text%3E%3Ctext x='140' y='70' font-size='26' font-family='monospace'%3E🖥️%3C/text%3E%3Ctext x='70' y='100' font-size='24' font-family='monospace'%3E💾%3C/text%3E%3Ctext x='120' y='160' font-size='26' font-family='monospace'%3E⌨️%3C/text%3E%3Ctext x='30' y='140' font-size='25' font-family='monospace'%3E🖱️%3C/text%3E%3Ctext x='160' y='120' font-size='24' font-family='monospace'%3E📁%3C/text%3E%3Ctext x='50' y='180' font-size='25' font-family='monospace'%3E🔧%3C/text%3E%3C/g%3E%3C/svg%3E"),
         /* Blue gradient background */
         linear-gradient(135deg, #4A90E2 0%, #2E86AB 30%, #1E5A8A 70%, #0F4C75 100%);
-    background-size: 120px 120px, 100% 100%;
+    background-size: 200px 200px, 100% 100%;
     position: relative;
     animation: subtleShift 60s ease-in-out infinite;
 }
 
 @keyframes subtleShift {
     0%, 100% { background-position: 0px 0px, 0% 0%; }
-    50% { background-position: 60px 60px, 0% 0%; }
+    50% { background-position: 100px 100px, 0% 0%; }
 }
 
 
@@ -734,10 +734,12 @@ body {
 
 .confetti {
     position: absolute;
+    left: 50%;
+    top: 50%;
     width: 10px;
     height: 10px;
     background: #ff6b6b;
-    animation: confetti-fall 3s linear forwards;
+    animation: confetti-burst 3s ease-out forwards;
 }
 
 .confetti:nth-child(2n) { background: #4ecdc4; }
@@ -758,13 +760,13 @@ body {
     border-radius: 0;
 }
 
-@keyframes confetti-fall {
+@keyframes confetti-burst {
     0% {
-        transform: translateY(-100vh) rotate(0deg);
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
         opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(720deg);
+        transform: translate(var(--dx), var(--dy)) scale(1) rotate(720deg);
         opacity: 0;
     }
 }
