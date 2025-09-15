@@ -1,0 +1,816 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 10px;
+    background: #c0c0c0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Desktop Environment */
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    background: 
+        radial-gradient(circle at 2px 2px, #a8a8a8 1px, transparent 1px),
+        #c0c0c0;
+    background-size: 4px 4px;
+    position: relative;
+}
+
+
+/* Classic Window Styles */
+.window {
+    position: absolute;
+    background: #c0c0c0;
+    border: 2px outset #c0c0c0;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    min-width: 300px;
+}
+
+.title-bar {
+    height: 20px;
+    background: linear-gradient(to bottom, #ffffff, #c0c0c0);
+    border-bottom: 1px solid #808080;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px;
+}
+
+.title-bar-title {
+    font-size: 9px;
+    font-weight: normal;
+    flex: 1;
+    text-align: center;
+}
+
+.title-bar-controls {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.title-bar-controls.left {
+    gap: 6px;
+}
+
+.title-bar-controls.right {
+    gap: 2px;
+}
+
+.window-button {
+    width: 14px;
+    height: 14px;
+    border: 1px outset #c0c0c0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+    color: #333333;
+    font-weight: bold;
+}
+
+.window-button:hover {
+    background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+}
+
+.window-button:active {
+    border: 1px inset #c0c0c0;
+    background: linear-gradient(to bottom, #d0d0d0, #c0c0c0);
+}
+
+.window-button.zoom::after {
+    content: '⇅';
+    font-size: 6px;
+}
+
+/* macOS Style Window Controls */
+.mac-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.mac-button:hover {
+    transform: scale(1.1);
+}
+
+.mac-button:active {
+    transform: scale(0.95);
+}
+
+.close-mac {
+    background: linear-gradient(to bottom, #ff5f57, #ff3b30);
+    box-shadow: 0 1px 2px rgba(255, 59, 48, 0.3);
+}
+
+.minimize-mac {
+    background: linear-gradient(to bottom, #ffbd2e, #ff9500);
+    box-shadow: 0 1px 2px rgba(255, 149, 0, 0.3);
+}
+
+.maximize-mac {
+    background: linear-gradient(to bottom, #28cd41, #30d158);
+    box-shadow: 0 1px 2px rgba(48, 209, 88, 0.3);
+}
+
+.close-mac:hover::after {
+    content: '×';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+.minimize-mac:hover::after {
+    content: '−';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+.maximize-mac:hover::after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+.window-content {
+    padding: 12px;
+    background: #c0c0c0;
+}
+
+
+/* Piano Window */
+.piano-window {
+    width: 900px;
+    height: 480px; /* Reduced from 500px to minimize white space */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 95vw;
+    max-height: 90vh;
+    transition: all 0.3s ease;
+}
+
+.piano-window.maximized {
+    width: 95vw;
+    height: 90vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.piano-content {
+    padding: 6px 6px 2px 6px; /* Reduced bottom padding */
+}
+
+.control-panel {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 8px; /* Reduced from 16px to bring keyboard closer */
+    padding: 14px;
+    background: #a8a8a8;
+    border: 1px inset #c0c0c0;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Typography System - Section Headers */
+.control-group label {
+    font-size: 9px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #000000;
+    font-family: 'Press Start 2P', cursive, monospace;
+}
+
+/* Typography System - Sub Labels */
+.sub-label {
+    font-size: 8px !important;
+    font-weight: normal !important;
+    margin-bottom: 3px !important;
+    font-family: 'Press Start 2P', cursive, monospace;
+}
+
+/* Playback Controls */
+.playback-group {
+    align-items: flex-start;
+    min-width: 120px;
+}
+
+.playback-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.record-button, .play-button {
+    background: linear-gradient(to bottom, #ffffff, #c0c0c0);
+    border: 2px outset #c0c0c0;
+    padding: 4px 8px;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 8px;
+    cursor: pointer;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.record-button:hover:not(:disabled), .play-button:hover:not(:disabled) {
+    background: linear-gradient(to bottom, #e0e0e0, #a0a0a0);
+}
+
+.record-button:active:not(:disabled), .play-button:active:not(:disabled) {
+    border: 2px inset #c0c0c0;
+    background: linear-gradient(to bottom, #a0a0a0, #e0e0e0);
+}
+
+.record-button:disabled, .play-button:disabled {
+    background: #999999;
+    color: #666666;
+    cursor: not-allowed;
+    border: 2px inset #999999;
+}
+
+.record-button.recording {
+    background: linear-gradient(to bottom, #ff6666, #cc3333);
+    color: white;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.record-icon, .play-icon {
+    font-size: 8px;
+}
+
+/* Typography System - Status Text */
+.recording-status {
+    font-size: 7px;
+    margin-top: 4px;
+    color: #333333;
+    min-height: 12px;
+}
+
+/* Audio Controls */
+.audio-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.volume-control-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.volume-display {
+    font-size: 7px;
+    color: #333333;
+    min-width: 25px;
+    text-align: right;
+}
+
+.sustain-control {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-top: 0px;
+    width: 100%;
+}
+
+.toggle-button {
+    background: linear-gradient(to bottom, #ffffff, #c0c0c0);
+    border: 1px outset #c0c0c0;
+    padding: 2px 8px;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 8px;
+    cursor: pointer;
+    min-width: 40px;
+}
+
+.toggle-button:active {
+    border: 1px inset #c0c0c0;
+    background: linear-gradient(to bottom, #a0a0a0, #e0e0e0);
+}
+
+.toggle-button.active {
+    background: linear-gradient(to bottom, #66ff66, #33cc33);
+    color: #000000;
+}
+
+/* Song Controls */
+.song-group {
+    align-items: center;
+    min-width: 120px;
+}
+
+.song-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    width: 100%;
+}
+
+.song-button {
+    background: linear-gradient(to bottom, #66ccff, #3399cc);
+    border: 2px outset #66ccff;
+    padding: 4px 8px;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 8px;
+    cursor: pointer;
+    color: #000000;
+    width: 95px;
+    text-align: center;
+}
+
+.song-button:hover:not(:disabled) {
+    background: linear-gradient(to bottom, #4db8ff, #2d8fcc);
+}
+
+.song-button:active:not(:disabled) {
+    border: 2px inset #66ccff;
+    background: linear-gradient(to bottom, #2d8fcc, #4db8ff);
+}
+
+.song-button:disabled {
+    background: #999999;
+    color: #666666;
+    cursor: not-allowed;
+    border: 2px inset #999999;
+}
+
+.song-button.playing {
+    background: linear-gradient(to bottom, #ffcc66, #cc9933);
+    color: #000000;
+    animation: pulse 1.5s infinite;
+}
+
+.song-status {
+    font-size: 7px;
+    margin-top: 4px;
+    color: #333333;
+    min-height: 12px;
+    text-align: center;
+}
+
+.teach-button {
+    background: linear-gradient(to bottom, #66ff66, #33cc33);
+    border: 2px outset #66ff66;
+    padding: 4px 8px;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 8px;
+    cursor: pointer;
+    color: #000000;
+    width: 95px;
+    text-align: center;
+    margin-top: 1px;
+}
+
+.teach-button:hover:not(:disabled) {
+    background: linear-gradient(to bottom, #4dff4d, #29a329);
+}
+
+.teach-button:active:not(:disabled) {
+    border: 2px inset #66ff66;
+    background: linear-gradient(to bottom, #29a329, #4dff4d);
+}
+
+.teach-button:disabled {
+    background: #999999;
+    color: #666666;
+    cursor: not-allowed;
+    border: 2px inset #999999;
+}
+
+.teach-button.teaching {
+    background: linear-gradient(to bottom, #ffff66, #cccc33);
+    color: #000000;
+    animation: pulse 2s infinite;
+}
+
+/* Teaching mode indicators */
+.key.next-key {
+    box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00, 0 0 35px #00ff00;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.key.correct {
+    box-shadow: 0 0 10px #00ff00;
+    animation: flash-green 0.3s;
+}
+
+.key.wrong {
+    box-shadow: 0 0 10px #ff0000;
+    animation: flash-red 0.5s;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00; }
+    to { box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; }
+}
+
+@keyframes flash-green {
+    0% { background: #66ff66; }
+    100% { background: initial; }
+}
+
+@keyframes flash-red {
+    0% { background: #ff6666; }
+    100% { background: initial; }
+}
+
+/* Falling light indicator */
+.falling-light {
+    position: absolute;
+    width: 6px; /* Increased width for larger keys */
+    height: 30px; /* Increased height for larger keys */
+    background: linear-gradient(to bottom, #00ff00, rgba(0, 255, 0, 0.3));
+    border-radius: 3px;
+    top: -40px; /* Adjusted starting position */
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fall 2s ease-in;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes fall {
+    from {
+        top: -40px;
+        opacity: 1;
+    }
+    to {
+        top: 150px; /* Increased for larger keys */
+        opacity: 0;
+    }
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 4px;
+    background: #808080;
+    border: 1px inset #c0c0c0;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #c0c0c0;
+    border: 1px outset #c0c0c0;
+    cursor: pointer;
+}
+
+.instrument-selector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.instrument-dropdown {
+    background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    border: 2px inset #c0c0c0;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 8px;
+    padding: 3px 6px;
+    width: 110px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.instrument-dropdown:focus {
+    outline: none;
+    border: 2px inset #0066cc;
+    background: linear-gradient(to bottom, #e6f3ff, #cce6ff);
+}
+
+.octave-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.control-button {
+    background: linear-gradient(to bottom, #ffffff, #c0c0c0);
+    border: 1px outset #c0c0c0;
+    padding: 2px 6px;
+    font-family: 'Press Start 2P', cursive, monospace;
+    font-size: 8px;
+    cursor: pointer;
+    min-width: 20px;
+}
+
+.control-button:active {
+    border: 1px inset #c0c0c0;
+    background: linear-gradient(to bottom, #a0a0a0, #e0e0e0);
+}
+
+#octaveDisplay {
+    font-size: 8px;
+    min-width: 20px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive, monospace;
+}
+
+/* Piano Keyboard */
+.piano-container {
+    background: #000000;
+    border: 2px inset #c0c0c0;
+    padding: 8px; /* Increased padding for larger keyboard */
+    margin-bottom: 4px; /* Further reduced margin */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center the keyboard horizontally */
+    width: fit-content; /* Size to fit keyboard exactly */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tutorial Message Area */
+.tutorial-message {
+    background: #e6e6e6;
+    border: 2px inset #c0c0c0;
+    padding: 8px 12px;
+    margin: 0 auto 4px auto; /* Reduced bottom margin from 12px to 4px */
+    text-align: center;
+    font-size: 8px;
+    font-family: 'Press Start 2P', cursive, monospace;
+    color: #000000;
+    width: fit-content;
+    min-height: 20px;
+    border-radius: 3px;
+    display: none; /* Hidden by default, shown during teaching */
+}
+
+.keyboard {
+    display: flex;
+    height: 180px; /* Increased from 120px */
+    width: 840px; /* Increased from 560px (14 keys × 60px each) */
+    position: relative;
+    margin: 0 auto; /* Center the keyboard */
+}
+
+/* Piano Keys */
+.key {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: normal;
+    transition: all 0.05s;
+}
+
+.key.white {
+    width: 60px; /* Increased from 40px */
+    height: 180px; /* Increased from 120px */
+    background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    border: 1px solid #000000;
+    border-radius: 0 0 4px 4px; /* Slightly larger radius */
+    z-index: 1;
+    padding-bottom: 12px; /* Increased padding */
+}
+
+.key.white:hover {
+    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+}
+
+.key.white:active,
+.key.white.active {
+    background: linear-gradient(to bottom, #d0d0d0, #c0c0c0);
+    transform: translateY(1px);
+}
+
+.key.black {
+    width: 38px; /* Increased from 25px */
+    height: 110px; /* Increased from 75px */
+    background: linear-gradient(to bottom, #404040, #000000);
+    border: 1px solid #000000;
+    border-radius: 0 0 3px 3px; /* Slightly larger radius */
+    z-index: 2;
+    margin-left: -19px; /* Adjusted for new width */
+    margin-right: -19px; /* Adjusted for new width */
+    color: white;
+    padding-bottom: 12px; /* Increased padding */
+}
+
+.key.black:hover {
+    background: linear-gradient(to bottom, #505050, #202020);
+}
+
+.key.black:active,
+.key.black.active {
+    background: linear-gradient(to bottom, #202020, #101010);
+    transform: translateY(1px);
+}
+
+.key-label {
+    font-size: 8px;
+    opacity: 0.7;
+}
+
+
+/* Desktop Icons */
+.desktop-icon {
+    position: absolute;
+    width: 60px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 8px;
+}
+
+.desktop-icon .icon {
+    font-size: 32px;
+    margin-bottom: 4px;
+}
+
+.desktop-icon .icon-label {
+    background: rgba(192, 192, 192, 0.8);
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.piano-icon {
+    bottom: 140px;
+    right: 20px;
+}
+
+.piano-icon.hidden {
+    display: none;
+}
+
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .piano-window {
+        width: 95vw;
+        height: 80vh; /* Reduced from 85vh to minimize white space */
+    }
+    
+    .keyboard {
+        width: 700px; /* Scaled down but still larger (14 × 50px) */
+        height: 150px;
+    }
+    
+    .key.white {
+        width: 50px;
+        height: 150px;
+        padding-bottom: 10px;
+    }
+    
+    .key.black {
+        width: 30px;
+        height: 90px;
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-bottom: 10px;
+    }
+    
+    .key-label {
+        font-size: 8px;
+    }
+    
+    .control-panel {
+        gap: 6px; /* Reduced gap to save space */
+        padding: 8px;
+        margin-bottom: 6px; /* Reduced margin */
+    }
+    
+    .volume-control-group {
+        gap: 3px;
+    }
+    
+    .volume-display {
+        font-size: 6px;
+        min-width: 20px;
+    }
+    
+    .song-button, .teach-button {
+        width: 85px;
+        font-size: 7px;
+    }
+    
+    .tutorial-message {
+        font-size: 7px;
+        padding: 6px 10px;
+    }
+    
+    .instrument-dropdown {
+        width: 95px;
+        font-size: 7px;
+        padding: 2px 4px;
+    }
+}
+
+@media (max-width: 750px) {
+    .keyboard {
+        width: 560px; /* Further scaled down (14 × 40px) */
+        height: 120px;
+    }
+    
+    .key.white {
+        width: 40px;
+        height: 120px;
+        padding-bottom: 8px;
+    }
+    
+    .key.black {
+        width: 25px;
+        height: 75px;
+        margin-left: -13px;
+        margin-right: -12px;
+        padding-bottom: 8px;
+    }
+    
+    .key-label {
+        font-size: 7px;
+    }
+    
+    .volume-control-group {
+        gap: 2px;
+    }
+    
+    .volume-display {
+        font-size: 6px;
+        min-width: 18px;
+    }
+    
+    .tutorial-message {
+        font-size: 7px;
+        padding: 4px 8px;
+    }
+    
+    .instrument-dropdown {
+        width: 85px;
+        font-size: 7px;
+        padding: 2px 4px;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        font-size: 8px;
+    }
+}

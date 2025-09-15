@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Piano</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Desktop Background -->
+    <div class="desktop">
+
+        <!-- Piano Window -->
+        <div class="window piano-window" id="pianoWindow">
+            <div class="title-bar">
+                <div class="title-bar-controls left">
+                    <div class="mac-button close-mac" id="closeMac"></div>
+                    <div class="mac-button minimize-mac" id="minimizeMac"></div>
+                    <div class="mac-button maximize-mac" id="maximizeMac"></div>
+                </div>
+                <div class="title-bar-title">My Piano</div>
+                <div class="title-bar-controls right">
+                    <div class="window-button close" id="closePiano">✕</div>
+                </div>
+            </div>
+            <div class="window-content piano-content">
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <!-- Playback Section -->
+                    <div class="control-group playback-group">
+                        <label>🎵 Playback</label>
+                        <div class="playback-controls">
+                            <button class="record-button" id="recordButton">
+                                <span class="record-icon">●</span> Record
+                            </button>
+                            <button class="play-button" id="playButton" disabled>
+                                <span class="play-icon">▶</span> Play
+                            </button>
+                        </div>
+                        <div class="recording-status" id="recordingStatus"></div>
+                    </div>
+                    
+                    <!-- Audio Controls -->
+                    <div class="control-group">
+                        <label>🔊 Audio</label>
+                        <div class="audio-controls">
+                            <label class="sub-label">Volume</label>
+                            <div class="volume-control-group">
+                                <input type="range" id="volumeSlider" min="0" max="100" value="70" class="slider">
+                                <span class="volume-display" id="volumeDisplay">70%</span>
+                            </div>
+                        </div>
+                        <div class="sustain-control">
+                            <label class="sub-label">Sustain</label>
+                            <button class="toggle-button" id="sustainToggle">OFF</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Instrument Controls -->
+                    <div class="control-group">
+                        <label>🎹 Instrument</label>
+                        <div class="instrument-selector">
+                            <label class="sub-label">Sound</label>
+                            <select id="instrumentSelect" class="instrument-dropdown">
+                                <option value="piano">Piano</option>
+                                <option value="electric">Electric Piano</option>
+                                <option value="organ">Organ</option>
+                                <option value="synthesizer">Synthesizer</option>
+                                <option value="harpsichord">Harpsichord</option>
+                                <option value="marimba">Marimba</option>
+                            </select>
+                        </div>
+                        <div class="octave-controls">
+                            <label class="sub-label">Octave</label>
+                            <button class="control-button" id="octaveDown">-</button>
+                            <span id="octaveDisplay">4</span>
+                            <button class="control-button" id="octaveUp">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Song Selection -->
+                    <div class="control-group song-group">
+                        <label>🎵 Songs</label>
+                        <div class="song-controls">
+                            <button class="song-button" id="playFurElise">Play Für Elise</button>
+                            <button class="teach-button" id="teachFurElise">Teach me</button>
+                            <div class="song-status" id="songStatus"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Piano Keyboard -->
+                <div class="piano-container">
+                    <div class="keyboard" id="keyboard">
+                        <!-- Keys will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Tutorial Message Area -->
+                <div class="tutorial-message" id="tutorialMessage">
+                    <!-- Tutorial messages will appear here -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icon piano-icon" id="pianoIcon">
+            <div class="icon">🎹</div>
+            <div class="icon-label">My Piano</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
