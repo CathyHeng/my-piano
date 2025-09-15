@@ -607,7 +607,7 @@ body {
 
 .keyboard {
     height: 180px; /* Increased from 120px */
-    width: 840px; /* Increased from 560px (14 keys × 60px each) */
+    width: 860px; /* Increased from 840px to give more room for last key */
     position: relative;
     margin: 0 auto; /* Center the keyboard */
 }
@@ -784,7 +784,7 @@ body {
     }
     
     .keyboard {
-        width: 700px; /* Scaled down but still larger (14 × 50px) */
+        width: 720px; /* Increased from 700px to give more room for last key */
         height: 150px;
     }
     
@@ -842,7 +842,7 @@ body {
 
 @media (max-width: 750px) {
     .keyboard {
-        width: 560px; /* Further scaled down (14 × 40px) */
+        width: 580px; /* Increased from 560px to give more room for last key */
         height: 120px;
     }
     
