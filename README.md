@@ -2,6 +2,8 @@
 
 A beautiful virtual piano application inspired by classic Mac OS design, built with vanilla HTML, CSS, and JavaScript.
 
+## 🎹 **[PLAY ONLINE →](https://cathyheng.github.io/my-piano)**
+
 ![My Piano Screenshot](https://via.placeholder.com/800x400?text=My+Piano+App)
 
 ## 🎹 Features
@@ -29,7 +31,7 @@ A beautiful virtual piano application inspired by classic Mac OS design, built w
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/my-piano.git
+   git clone https://github.com/CathyHeng/my-piano.git
    cd my-piano
    ```
 
@@ -116,7 +118,7 @@ Contributions are welcome! Feel free to:
 ## 📞 Support
 
 If you encounter any issues or have questions:
-1. Check the [Issues](https://github.com/yourusername/my-piano/issues) page
+1. Check the [Issues](https://github.com/CathyHeng/my-piano/issues) page
 2. Create a new issue if needed
 3. Provide details about your browser and OS
 
