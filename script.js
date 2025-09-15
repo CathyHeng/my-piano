@@ -1089,6 +1089,39 @@ class MacPiano {
         this.currentNoteIndex = 0;
     }
     
+    triggerConfettiCelebration() {
+        // Create confetti container
+        const confettiContainer = document.createElement('div');
+        confettiContainer.className = 'confetti-container';
+        document.body.appendChild(confettiContainer);
+        
+        // Create multiple confetti pieces
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            
+            // Random positioning across the screen width
+            confetti.style.left = Math.random() * 100 + '%';
+            
+            // Random delay for staggered effect
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            
+            // Random sizes for variety
+            const size = Math.random() * 8 + 6; // 6-14px
+            confetti.style.width = size + 'px';
+            confetti.style.height = size + 'px';
+            
+            confettiContainer.appendChild(confetti);
+        }
+        
+        // Remove confetti container after animation completes
+        setTimeout(() => {
+            if (confettiContainer && confettiContainer.parentNode) {
+                confettiContainer.parentNode.removeChild(confettiContainer);
+            }
+        }, 5000);
+    }
+    
     showNextNote() {
         if (!this.isTeaching || !this.teachingSong || this.currentNoteIndex >= this.teachingSong.length) {
             return;
@@ -1165,10 +1198,11 @@ class MacPiano {
             this.currentNoteIndex++;
             
             if (this.currentNoteIndex >= this.teachingSong.length) {
-                // Song completed
+                // Song completed - trigger confetti celebration!
+                this.triggerConfettiCelebration();
                 const tutorialMessage = document.getElementById('tutorialMessage');
                 tutorialMessage.textContent = '🎉 Congratulations! You completed Für Elise! Well done! 🎵';
-                const timeoutId = setTimeout(() => this.stopTeaching(), 3000);
+                const timeoutId = setTimeout(() => this.stopTeaching(), 4000);
                 this.teachingTimeouts.push(timeoutId);
             } else {
                 // Show next note after a brief pause
