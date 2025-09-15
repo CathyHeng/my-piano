@@ -187,25 +187,18 @@ body {
 
 .piano-content {
     padding: 6px 6px 2px 6px; /* Reduced bottom padding */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center all content horizontally */
-    justify-content: center; /* Center content vertically */
-    min-height: calc(100% - 20px); /* Account for title bar height */
 }
 
 .control-panel {
     display: flex;
     gap: 16px;
-    margin: 8px 0; /* Simplified margin for centered layout */
+    margin-bottom: 8px; /* Reduced from 16px to bring keyboard closer */
     padding: 14px;
     background: #a8a8a8;
     border: 1px inset #c0c0c0;
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: fit-content;
-    max-width: 100%;
 }
 
 .control-group {
@@ -578,11 +571,14 @@ body {
     background: #000000;
     border: 2px inset #c0c0c0;
     padding: 8px; /* Increased padding for larger keyboard */
+    margin-top: 45px; /* Center keyboard vertically along reference line */
+    margin-bottom: 4px; /* Further reduced margin */
     overflow: hidden;
     display: flex;
     justify-content: center; /* Center the keyboard horizontally */
     width: fit-content; /* Size to fit keyboard exactly */
-    margin: 8px 0; /* Simple vertical margin */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Tutorial Message Area */
