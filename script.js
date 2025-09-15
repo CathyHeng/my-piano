@@ -318,25 +318,25 @@ class MacPiano {
             key.style.left = `${position * whiteKeyWidth}px`;
         });
         
-        // Black keys positioned correctly according to piano pattern: 2-3-2-3
+        // Black keys positioned to overlap white keys (half on each adjacent key)
         const blackKeyData = [
             // First octave - Group of 2: C# D#
-            {note: 'C#', octave: 0, whiteKeyIndex: 0.5},  // Between C and D
-            {note: 'D#', octave: 0, whiteKeyIndex: 1.5},  // Between D and E
+            {note: 'C#', octave: 0, whiteKeyIndex: 1.0},   // Half on C(0), half on D(1) - centered at boundary
+            {note: 'D#', octave: 0, whiteKeyIndex: 2.0},   // Half on D(1), half on E(2) - centered at boundary
             // Gap between E and F
             // Group of 3: F# G# A#  
-            {note: 'F#', octave: 0, whiteKeyIndex: 3.5},  // Between F and G
-            {note: 'G#', octave: 0, whiteKeyIndex: 4.5},  // Between G and A
-            {note: 'A#', octave: 0, whiteKeyIndex: 5.5},  // Between A and B
+            {note: 'F#', octave: 0, whiteKeyIndex: 4.0},   // Half on F(3), half on G(4) - centered at boundary
+            {note: 'G#', octave: 0, whiteKeyIndex: 5.0},   // Half on G(4), half on A(5) - centered at boundary
+            {note: 'A#', octave: 0, whiteKeyIndex: 6.0},   // Half on A(5), half on B(6) - centered at boundary
             
             // Second octave - Group of 2: C# D#
-            {note: 'C#', octave: 1, whiteKeyIndex: 7.5},  // Between C and D
-            {note: 'D#', octave: 1, whiteKeyIndex: 8.5},  // Between D and E
+            {note: 'C#', octave: 1, whiteKeyIndex: 8.0},   // Half on C(7), half on D(8) - centered at boundary
+            {note: 'D#', octave: 1, whiteKeyIndex: 9.0},   // Half on D(8), half on E(9) - centered at boundary
             // Gap between E and F
             // Group of 3: F# G# A#
-            {note: 'F#', octave: 1, whiteKeyIndex: 10.5}, // Between F and G
-            {note: 'G#', octave: 1, whiteKeyIndex: 11.5}, // Between G and A  
-            {note: 'A#', octave: 1, whiteKeyIndex: 12.5}  // Between A and B
+            {note: 'F#', octave: 1, whiteKeyIndex: 11.0},  // Half on F(10), half on G(11) - centered at boundary
+            {note: 'G#', octave: 1, whiteKeyIndex: 12.0},  // Half on G(11), half on A(12) - centered at boundary
+            {note: 'A#', octave: 1, whiteKeyIndex: 13.0}   // Half on A(12), half on B(13) - centered at boundary
         ];
         
         // Create black keys
@@ -351,8 +351,10 @@ class MacPiano {
             // Get the actual computed width for responsive design
             const blackKeyWidth = blackKey.offsetWidth;
             
-            // Position black key centered between white keys
-            const leftPosition = (whiteKeyIndex * whiteKeyWidth) - (blackKeyWidth / 2);
+            // Position black key to overlap white keys (half on each adjacent white key)
+            // whiteKeyIndex 0.5 means halfway between white key 0 and 1
+            const centerPosition = whiteKeyIndex * whiteKeyWidth;
+            const leftPosition = centerPosition - (blackKeyWidth / 2);
             blackKey.style.left = `${leftPosition}px`;
         });
     }
