@@ -1037,6 +1037,9 @@ class MacPiano {
         // Clear any active notes before starting
         this.clearAllActiveNotes();
         
+        // Add green overlay to all keys during teaching mode
+        document.body.classList.add('teaching-mode');
+        
         // Show the first note
         this.showNextNote();
     }
@@ -1078,6 +1081,9 @@ class MacPiano {
         // Clear visual indicators and any active notes
         this.clearVisualIndicators();
         this.clearAllActiveNotes();
+        
+        // Remove green overlay from all keys
+        document.body.classList.remove('teaching-mode');
         
         this.teachingSong = null;
         this.currentNoteIndex = 0;
@@ -1166,7 +1172,7 @@ class MacPiano {
                 this.teachingTimeouts.push(timeoutId);
             } else {
                 // Show next note after a brief pause
-                const timeoutId = setTimeout(() => this.showNextNote(), 800);
+                const timeoutId = setTimeout(() => this.showNextNote(), 300);
                 this.teachingTimeouts.push(timeoutId);
             }
         } else {

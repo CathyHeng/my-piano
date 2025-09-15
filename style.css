@@ -703,6 +703,27 @@ body {
 }
 
 
+/* Teaching Mode Overlay */
+.teaching-mode .key {
+    position: relative;
+}
+
+.teaching-mode .key::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 255, 0, 0.3); /* 30% transparent green */
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.teaching-mode .key.next-key::after {
+    background-color: rgba(0, 255, 0, 0.6); /* Brighter green for highlighted key */
+}
+
 /* Utility Classes */
 .hidden {
     display: none !important;
