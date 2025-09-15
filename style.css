@@ -1,4 +1,4 @@
-/* Reset and base styles */
+e /* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -18,10 +18,18 @@ body {
     width: 100vw;
     height: 100vh;
     background: 
-        radial-gradient(circle at 2px 2px, #a8a8a8 1px, transparent 1px),
-        #c0c0c0;
-    background-size: 4px 4px;
+        /* Computer icons pattern */
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Ctext x='10' y='20' font-size='16' font-family='monospace'%3E💻%3C/text%3E%3Ctext x='80' y='40' font-size='14' font-family='monospace'%3E🖥️%3C/text%3E%3Ctext x='40' y='60' font-size='12' font-family='monospace'%3E💾%3C/text%3E%3Ctext x='70' y='90' font-size='14' font-family='monospace'%3E⌨️%3C/text%3E%3Ctext x='15' y='80' font-size='13' font-family='monospace'%3E🖱️%3C/text%3E%3Ctext x='90' y='70' font-size='12' font-family='monospace'%3E📁%3C/text%3E%3Ctext x='30' y='100' font-size='13' font-family='monospace'%3E🔧%3C/text%3E%3C/g%3E%3C/svg%3E"),
+        /* Blue gradient background */
+        linear-gradient(135deg, #2E86AB 0%, #A23B72 50%, #F18F01 100%);
+    background-size: 120px 120px, 100% 100%;
     position: relative;
+    animation: subtleShift 60s ease-in-out infinite;
+}
+
+@keyframes subtleShift {
+    0%, 100% { background-position: 0px 0px, 0% 0%; }
+    50% { background-position: 60px 60px, 0% 0%; }
 }
 
 
