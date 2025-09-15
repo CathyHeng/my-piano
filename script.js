@@ -175,10 +175,6 @@ class MacPiano {
             this.maximizePiano();
         });
         
-        // Close piano button (top right) - now minimizes the window
-        document.getElementById('closePiano').addEventListener('click', () => {
-            this.minimizePiano();
-        });
         
         // Piano icon - restores the piano window
         document.getElementById('pianoIcon').addEventListener('click', () => {
@@ -284,35 +280,66 @@ class MacPiano {
     
     generateKeyboard() {
         const keyboard = document.getElementById('keyboard');
-        const notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-        const whiteKeys = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+        keyboard.innerHTML = ''; // Clear existing keys
+        keyboard.style.position = 'relative'; // Enable absolute positioning of children
         
-        // Generate 2 octaves as requested
-        for (let octave = 0; octave < 2; octave++) {
-            whiteKeys.forEach(note => {
-                const key = this.createKey(note, octave, false);
-                keyboard.appendChild(key);
-            });
-        }
+        // White keys for 2 octaves: C D E F G A B C D E F G A B
+        const whiteKeyData = [
+            // First octave (octave 0)
+            {note: 'C', octave: 0, position: 0},
+            {note: 'D', octave: 0, position: 1}, 
+            {note: 'E', octave: 0, position: 2},
+            {note: 'F', octave: 0, position: 3},
+            {note: 'G', octave: 0, position: 4},
+            {note: 'A', octave: 0, position: 5},
+            {note: 'B', octave: 0, position: 6},
+            // Second octave (octave 1)
+            {note: 'C', octave: 1, position: 7},
+            {note: 'D', octave: 1, position: 8},
+            {note: 'E', octave: 1, position: 9},
+            {note: 'F', octave: 1, position: 10},
+            {note: 'G', octave: 1, position: 11},
+            {note: 'A', octave: 1, position: 12},
+            {note: 'B', octave: 1, position: 13}
+        ];
+
+        // Create white keys first
+        whiteKeyData.forEach(({note, octave, position}) => {
+            const key = this.createKey(note, octave, false);
+            key.style.position = 'absolute';
+            key.style.left = `${position * 60}px`; // 60px width per white key
+            keyboard.appendChild(key);
+        });
         
-        // Add black keys
-        const blackKeyPositions = [
-            {note: 'C#', octave: 0, position: 0},
-            {note: 'D#', octave: 0, position: 1},
-            {note: 'F#', octave: 0, position: 3},
-            {note: 'G#', octave: 0, position: 4},
-            {note: 'A#', octave: 0, position: 5},
-            {note: 'C#', octave: 1, position: 7},
-            {note: 'D#', octave: 1, position: 8},
-            {note: 'F#', octave: 1, position: 10},
-            {note: 'G#', octave: 1, position: 11},
-            {note: 'A#', octave: 1, position: 12}
+        // Black keys positioned correctly according to piano pattern: 2-3-2-3
+        const blackKeyData = [
+            // First octave - Group of 2: C# D#
+            {note: 'C#', octave: 0, whiteKeyIndex: 0.5},  // Between C and D
+            {note: 'D#', octave: 0, whiteKeyIndex: 1.5},  // Between D and E
+            // Gap between E and F
+            // Group of 3: F# G# A#  
+            {note: 'F#', octave: 0, whiteKeyIndex: 3.5},  // Between F and G
+            {note: 'G#', octave: 0, whiteKeyIndex: 4.5},  // Between G and A
+            {note: 'A#', octave: 0, whiteKeyIndex: 5.5},  // Between A and B
+            
+            // Second octave - Group of 2: C# D#
+            {note: 'C#', octave: 1, whiteKeyIndex: 7.5},  // Between C and D
+            {note: 'D#', octave: 1, whiteKeyIndex: 8.5},  // Between D and E
+            // Gap between E and F
+            // Group of 3: F# G# A#
+            {note: 'F#', octave: 1, whiteKeyIndex: 10.5}, // Between F and G
+            {note: 'G#', octave: 1, whiteKeyIndex: 11.5}, // Between G and A  
+            {note: 'A#', octave: 1, whiteKeyIndex: 12.5}  // Between A and B
         ];
         
-        blackKeyPositions.forEach(({note, octave, position}) => {
+        // Create black keys
+        blackKeyData.forEach(({note, octave, whiteKeyIndex}) => {
             const blackKey = this.createKey(note, octave, true);
             blackKey.style.position = 'absolute';
-            blackKey.style.left = `${(position * 60) + 41}px`; /* Updated for 60px white keys */
+            blackKey.style.zIndex = '2'; // Ensure black keys appear above white keys
+            // Position black key centered between white keys
+            const leftPosition = (whiteKeyIndex * 60) - 19; // 19px = half of 38px black key width
+            blackKey.style.left = `${leftPosition}px`;
             keyboard.appendChild(blackKey);
         });
     }
