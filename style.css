@@ -571,6 +571,7 @@ body {
     background: #000000;
     border: 2px inset #c0c0c0;
     padding: 8px; /* Increased padding for larger keyboard */
+    margin-top: 16px; /* Add space above keyboard to move it lower */
     margin-bottom: 4px; /* Further reduced margin */
     overflow: hidden;
     display: flex;
